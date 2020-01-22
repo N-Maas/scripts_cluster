@@ -11,7 +11,7 @@ import sys
 ###################################
 # SETUP ENV
 ###################################
-balance = str('/home/maas/Bachelorarbeit/Partitioners/KaHyPar/kahypar-node-weights/build/tools/BalanceConstraint')
+balance = str('/home/kit/stud/ucywg/partitioners/kahypar/build/tools/BalanceConstraint')
 ###################################
 
 parser = argparse.ArgumentParser()

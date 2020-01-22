@@ -10,8 +10,8 @@ import os
 ###################################
 # SETUP ENV
 ###################################
-kahypar = str('/home/maas/Bachelorarbeit/Partitioners/KaHyPar/kahypar-node-weights/build/kahypar/application/KaHyPar')
-config = str('/home/maas/Bachelorarbeit/Partitioners/KaHyPar/kahypar-node-weights/config/km1_kKaHyPar_dissertation.ini')
+kahypar = str('/home/kit/stud/ucywg/partitioners/kahypar/')
+config = str('km1_kKaHyPar_dissertation.ini')
 ###################################
 
 parser = argparse.ArgumentParser()
@@ -26,6 +26,9 @@ ufactor = args.ufactor
 graph = args.graph
 k = args.k
 seed = args.seed
+
+kahypar_bin = kahypar + 'build/kahypar/application/KaHyPar'
+kahypar_config = kahypar + 'config/' + config
 
 start = time.time()
 
