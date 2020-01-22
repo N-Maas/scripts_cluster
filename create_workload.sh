@@ -10,7 +10,7 @@ declare -a kValues=("2" "32" "128")
 declare -a eValues=("0.03" "0.1")
 
 # scripts to execute
-start_scripts="$PWD/start_soed_kkahypar_*.py"
+start_scripts="$PWD/start_soed_kkahypar*.py"
 
 # create scripts
 create_scripts="$PWD/create_arg_combinations.py"

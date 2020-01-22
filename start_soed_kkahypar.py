@@ -47,12 +47,6 @@ p = Popen([kahypar_bin,
         'km1',
         '-m',
         'direct',
-        '--i-balancing',
-        '$STR',
-        '--i-epsilon-type',
-        '$EPS',
-        '--i-bin-packing-algorithm',
-        '$BP',
 	    '-p',
         kahypar_config], stdout=PIPE, bufsize=1)
 
@@ -68,4 +62,4 @@ for line in iter(p.stdout.readline, b''):
 p.communicate()  # close p.stdout, wait for the subprocess to exit
 end = time.time()
 
-print(result_string + " type=kKaHyPar$APP" + " measuredTotalPartitionTime=" + str(end-start))
+print(result_string + " type=kKaHyPar" + " measuredTotalPartitionTime=" + str(end-start))

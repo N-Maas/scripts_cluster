@@ -28,7 +28,7 @@ cd boost_1_56_0
 mv * ~/<KaHyPar directory>/external_tools/boost/src/boost
 
 7.)
-cd ~/<KaHyPar directory>/release
+cd ~/<KaHyPar directory>/build
 cmake .
 make mini_boost
 make KaHyPar
