@@ -39,7 +39,8 @@ do
 	echo "$partitioner does not exist"
 	exit 1
     fi
-    tool_name=`echo $partitioner | sed 's!.*_!!' | sed 's!\..*!!' `
+    tool_name=$(basename "$partitioner")
+    tool_name="${tool_name%.py}"
     if [[ ! -d "$PWD/../results/$tool_name" ]]; then
 	mkdir "$PWD/../results/$tool_name"
     fi
