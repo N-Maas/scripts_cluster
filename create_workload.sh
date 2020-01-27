@@ -51,7 +51,7 @@ do
     	do
             for epsilon in "${eValues[@]}"
             do
-                for seed in `seq 1 9`
+                for seed in `seq 0 9`
                 do
                     echo "timeout 8h $wrapper $partitioner $instance $k $epsilon $seed >> $PWD/../results/$tool_name/$instance_name.$k.$epsilon.$seed.results" >> $workload_file
                 done
