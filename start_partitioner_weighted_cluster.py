@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 from subprocess import Popen, PIPE
 import ntpath
 import argparse
@@ -7,6 +7,7 @@ import re
 import math
 import os
 import sys
+import io
 
 ###################################
 # SETUP ENV
@@ -37,14 +38,12 @@ p = Popen([balance,
 avg_weight = 0
 border = 0
 
-for line in iter(p.stdout.readline, b''):
+for line in io.TextIOWrapper(p.stdout, encoding="utf-8"):
     s = str(line).strip()
     if s.startswith('average block weight'):
         avg_weight = int(re.match(r".* (\d+$)", s).group(1))
     if s.startswith('calculated border'):
         border = int(re.match(r".* (\d+$)", s).group(1))
-
-p.communicate()  # close p.stdout, wait for the subprocess to exit
 
 new_factor = (float(border) / float(avg_weight) * (1 + float(ufactor))) - 1
 
@@ -56,13 +55,11 @@ p = Popen([str(partitioner),
 
 result_string = ""
 
-for line in iter(p.stdout.readline, b''):
+for line in io.TextIOWrapper(p.stdout, encoding="utf-8"):
     s = str(line).strip()
     if s.startswith("RESULT"):
         result_string = s
     else:
         print(s)
-
-p.communicate()  # close p.stdout, wait for the subprocess to exit
 
 print(result_string + " baseEpsilon=" + str(ufactor) + " calculatedBorder=" + str(border))

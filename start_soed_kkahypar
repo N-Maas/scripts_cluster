@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 from subprocess import Popen, PIPE
 import ntpath
 import argparse
@@ -6,6 +6,7 @@ import time
 import re
 import math
 import os
+import io
 
 ###################################
 # SETUP ENV
@@ -58,14 +59,13 @@ p = Popen([kahypar_bin,
 
 result_string = ""
 
-for line in iter(p.stdout.readline, b''):
+for line in io.TextIOWrapper(p.stdout, encoding="utf-8"):
     s = str(line).strip()
     if s.startswith("RESULT"):
         result_string = s
     else:
         print(s)
 
-p.communicate()  # close p.stdout, wait for the subprocess to exit
 end = time.time()
 
-print(result_string + " type=kKaHyPar$APP" + " measuredTotalPartitionTime=" + str(end-start))
+print((result_string + " type=kKaHyPar$APP" + " measuredTotalPartitionTime=" + str(end-start)))

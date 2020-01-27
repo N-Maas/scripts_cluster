@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 from os import chmod
 
 ###################################
@@ -23,7 +23,7 @@ for i in range(0, len(strategies)):
 			appendix = '_' + '_'.join([str_abbr[i], eps_abbr[j], bp_abbr[k]])
 			out_file = template + appendix + '.py'
 			out = open(out_file, 'w')
-			chmod(out_file, 0744)
+			chmod(out_file, 0o744)
 
 			for line in open(template, 'r'):
 				line = line.replace('$APP', appendix)
