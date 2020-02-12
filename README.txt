@@ -11,9 +11,11 @@
 4.) ./create_workload.sh 
 	- Generiert workload.txt
 
-5.) Ggf. start_kahypar-mf.py anpassen, falls du andere Commandline-Parameter brauchst
+5.) Ggf. start_kahypar-mf.py anpassen, falls du andere Commandline-Parameter brauchst (Ctrl + a, d für detach, screen -r für restore)
 
-6.) ./slotbasedworkdistribution.py workload.txt & 
+6.) screen ausführen, um Session zu bekommen, die nach ausloggen bestehen bleibt
+
+7.) ./slotbasedworkdistribution.py workload.txt & 
 	- Startet die Jobs
 
-7.) Die Ergebnisse landen dann in ~/experiments/<experiment-name>/results/script-name
+8.) Die Ergebnisse landen dann in ~/experiments/<experiment-name>/results/script-name
