@@ -48,7 +48,7 @@ p = Popen([kahypar_bin,
         '-m',
         'direct',
         '--i-epsilon-type',
-        'flat',
+        'relaxed',
 	    '-p',
         kahypar_config], stdout=PIPE, bufsize=1)
 
