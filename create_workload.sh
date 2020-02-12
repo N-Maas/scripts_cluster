@@ -10,7 +10,7 @@ declare -a kValues=("2" "32" "128")
 declare -a eValues=("0.03" "0.1")
 
 # scripts to execute
-start_scripts="$PWD/start_soed_kkahypar*.py"
+declare -a start_scripts=("$PWD/start_soed_kkahypar.py" "$PWD/start_soed_kkahypar_eRel.py")
 
 # create scripts
 create_scripts="$PWD/create_arg_combinations.py"
@@ -33,7 +33,7 @@ if [[ ! -d "$PWD/../results" ]]; then
     mkdir "$PWD/../results"
 fi
 
-for partitioner in $start_scripts
+for partitioner in "${start_scripts[@]}"
 do
     if [[ ! -f "$partitioner" ]]; then
 	echo "$partitioner does not exist"
