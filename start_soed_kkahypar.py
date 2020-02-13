@@ -62,7 +62,6 @@ for line in io.TextIOWrapper(p.stdout, encoding="utf-8"):
     else:
         print(s)
 
-p.communicate()  # close p.stdout, wait for the subprocess to exit
 end = time.time()
 
 print(result_string + " type=kKaHyPar" + " measuredTotalPartitionTime=" + str(end-start))
