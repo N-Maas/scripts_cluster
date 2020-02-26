@@ -64,4 +64,4 @@ for line in io.TextIOWrapper(p.stdout, encoding="utf-8"):
 
 end = time.time()
 
-print(result_string + " type=kKaHyPar" + " measuredTotalPartitionTime=" + str(end-start))
+print(result_string + " type=kKaHyPar_eRel" + " measuredTotalPartitionTime=" + str(end-start))
