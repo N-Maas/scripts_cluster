@@ -10,7 +10,7 @@ declare -a kValues=("2" "32" "128")
 declare -a eValues=("0.03" "0.1")
 
 # scripts to execute
-declare -a start_scripts=("$PWD/start_soed_kkahypar.py" "$PWD/start_soed_kkahypar_eRel.py")
+declare -a start_scripts=("$PWD/start_soed_kkahypar_eFlat_FF.py" "$PWD/start_soed_kkahypar_eFlat_WF.py" "$PWD/start_soed_kkahypar_eInc_FF.py" "$PWD/start_soed_kkahypar_eInc_WF.py")
 
 # create scripts
 create_scripts="$PWD/create_arg_combinations.py"
