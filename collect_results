@@ -1,1 +1,0 @@
-grep RESULT * | sed -n 's/.*\(RESULT.*\)/\1/p' > "../RESULTS_$(pwd | sed -n 's/.*\/\(.*\)/\1/p')" 
