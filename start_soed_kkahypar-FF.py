@@ -53,7 +53,7 @@ p = Popen([kahypar_bin,
         '--i-infeasible-late-restart',
         'true',
         '--i-bin-packing-algorithm',
-        '$BP',
+        'first_fit',
 	    '-p',
         kahypar_config], stdout=PIPE, bufsize=1)
 
@@ -68,4 +68,4 @@ for line in io.TextIOWrapper(p.stdout, encoding="utf-8"):
 
 end = time.time()
 
-print((result_string + " type=kKaHyPar$APP" + " measuredTotalPartitionTime=" + str(end-start)))
+print((result_string + " type=kKaHyPar-FF" + " measuredTotalPartitionTime=" + str(end-start)))
