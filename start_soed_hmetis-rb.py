@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 from subprocess import Popen, PIPE
 import ntpath
 import argparse
@@ -6,6 +6,7 @@ import time
 import re
 import math
 import os
+import io
 
 ###################################
 # SETUP ENV
@@ -90,9 +91,9 @@ i = 0
 results = []
 part_sizes = []
 hg_weight = 0
-for line in iter(p.stdout.readline, b''):
+for line in io.TextIOWrapper(p.stdout, encoding="utf-8"):
     s = str(line).strip()
-    print(s)
+    # print(s)
     if ("UBfactor" in s):
         result_string += (" usedRbUFactor=" + str(float(s.split(',')[1][12:])))
     if ("Vtxs" in s):
@@ -133,7 +134,6 @@ for line in iter(p.stdout.readline, b''):
             part_size = float(t.group(0)[1:-1])
             part_sizes.append(part_size)
 
-p.communicate()  # close p.stdout, wait for the subprocess to exit
 end = time.time()
 
 # compute imbalance

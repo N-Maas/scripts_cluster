@@ -1,14 +1,14 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 from subprocess import Popen, PIPE
 import ntpath
 import re
 import os
 import argparse
 import time
-import re
 import math
 import random
 import sys
+import io
 from os.path import basename
 from shutil import rmtree
 
@@ -132,11 +132,11 @@ i = 0
 results = []
 part_sizes = []
 hg_weight = 0
-for line in iter(p.stdout.readline, b''):
+for line in io.TextIOWrapper(p.stdout, encoding="utf-8"):
     s = str(line).strip()
-    print(s)
+    # print(s)
     if ("Cells" in s):
-        #print(s.split(','))
+        # print(s.split(','))
         t = re.compile('Cells : \s*([^\s]*)')
         result_string += (" numHNs="+str(t.findall(s)[0]))
         t = re.compile('Nets : \s*([^\s]*)')
@@ -170,8 +170,6 @@ for line in iter(p.stdout.readline, b''):
         imb = float(max_part) / math.ceil(float(total_weight) / k) - 1.0
         result_string += " imbalance="+str(imb)
 
-
-p.communicate()  # close p.stdout, wait for the subprocess to exit
 end = time.time()
 
 rmtree(modified_hg_path) # delete the temporary file after usage

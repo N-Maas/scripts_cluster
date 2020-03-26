@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 from subprocess import Popen, PIPE
 import ntpath
 import argparse
@@ -6,6 +6,7 @@ import time
 import re
 import math
 import os
+import io
 from os import mkdir
 from os.path import basename, splitext, isfile, isdir
 from shutil import copyfile, rmtree
@@ -60,13 +61,11 @@ result_string = ("RESULT epsilon=" + str(ufactor) +
         " seed=" + str(seed))
 
 mond_time = "none"
-for line in iter(p.stdout.readline, b''):
+for line in io.TextIOWrapper(p.stdout, encoding="utf-8"):
     s = str(line).strip()
     print(s)
     if ("matrix distribution elapsed time:" in s):
 	mond_time = float(re.sub('seconds$', '', s[33:]))
-
-p.communicate()  # close p.stdout, wait for the subprocess to exit
 
 end = time.time()
 
@@ -76,13 +75,11 @@ p = Popen([evaluator,
            str(modified_hg_path),
 	   str(mondriaan_output_file)], stdout=PIPE, bufsize=1)
 
-for line in iter(p.stdout.readline, b''):
+for line in io.TextIOWrapper(p.stdout, encoding="utf-8"):
     s = str(line).strip()
     #print(s)
     if ("RESULT " in s):
 	result_string = result_string+str(s[6:])
-
-p.communicate()  # close p.stdout, wait for the subprocess to exit
 
 rmtree(modified_hg_dir) # delete the temporary directory after usage
 
