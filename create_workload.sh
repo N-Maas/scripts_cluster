@@ -1,19 +1,19 @@
 #!/bin/bash
 
 # Set the folder containing the hypergraphs
-instance_dir="/pfs/work2/workspace/scratch/ucywg-benchmarks_node_weights-0/"
+instance_dir="/pfs/work2/workspace/scratch/ucywg-benchmarks_final-0/"
 
 # Values of k
-declare -a kValues=("2" "32" "128")
+declare -a kValues=("2" "4" "8" "16" "32" "64" "128")
 
 # Imbalance
 declare -a eValues=("0.03" "0.1")
 
 # scripts to execute
-declare -a start_scripts=("$PWD/start_soed_kkahypar_eFlat_FF.py" "$PWD/start_soed_kkahypar_eFlat_WF.py" "$PWD/start_soed_kkahypar_eInc_FF.py" "$PWD/start_soed_kkahypar_eInc_WF.py")
+declare -a start_scripts=("$PWD/start_soed_kkahypar-FF.py" "$PWD/start_soed_kkahypar-WF.py" "$PWD/start_soed_kkahypar.py" "$PWD/start_con1_mondriaan.py" "$PWD/start_con1_patoh-d.py" "$PWD/start_con1_patoh-q.py" "$PWD/start_soed_hmetis-k.py" "$PWD/start_soed_hmetis-rb.py")
 
 # create scripts
-create_scripts="$PWD/create_arg_combinations.py"
+# create_scripts="$PWD/create_arg_combinations.py"
 
 # wrapper script
 wrapper="$PWD/start_partitioner_weighted_cluster.py"
@@ -27,7 +27,7 @@ module load compiler/gnu/9.1
 module load mpi/openmpi/4.0-gnu-9.1
 module load devel/python/3.3.3
 
-$create_scripts
+# $create_scripts
 
 if [[ ! -d "$PWD/../results" ]]; then
     mkdir "$PWD/../results"
@@ -53,7 +53,7 @@ do
             do
                 for seed in `seq 0 9`
                 do
-                    echo "timeout 8h $wrapper $partitioner $instance $k $epsilon $seed >> $PWD/../results/$tool_name/$instance_name.$k.$epsilon.$seed.results" >> $workload_file
+                    echo "timeout 2h $wrapper $partitioner $instance $k $epsilon $seed >> $PWD/../results/$tool_name/$instance_name.$k.$epsilon.$seed.results" >> $workload_file
                 done
     	    done
         done
