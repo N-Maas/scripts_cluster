@@ -47,7 +47,7 @@ p = Popen([kahypar_bin,
         '-o',
         'km1',
         '-m',
-        'direct',
+        'recursive',
 	    '-p',
         kahypar_config], stdout=PIPE, bufsize=1)
 
@@ -63,4 +63,4 @@ for line in io.TextIOWrapper(p.stdout, encoding="utf-8"):
 
 end = time.time()
 
-print(result_string + " type=kKaHyPar" + " measuredTotalPartitionTime=" + str(end-start))
+print(result_string + " type=rKaHyPar" + " measuredTotalPartitionTime=" + str(end-start))
