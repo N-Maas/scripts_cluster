@@ -17,7 +17,7 @@ from shutil import copyfile, rmtree
 mondriaan = str('/home/kit/stud/ucywg/partitioners/Mondriaan/mondriaan-master/tools/Mondriaan')
 evaluator = str('/home/kit/stud/ucywg/partitioners/KaHyPar/kahypar/build/tools/EvaluateMondriaanPartition')
 converter = str('/home/kit/stud/ucywg/partitioners/KaHyPar/kahypar/build/tools/HgrToMondriaanMtx')
-CONVERTER_OUTPUT = file("/dev/null")
+CONVERTER_OUTPUT = open("/dev/null")
 MONDRIAAN_TMP = str('/tmp')
 ###################################
 
@@ -73,7 +73,7 @@ mondriaan_output_file = mondriaan_graph+'-v'+str(k)#+'-s'+str(seed)
 
 p = Popen([evaluator,
            str(modified_hg_path),
-     str(mondriaan_output_file)], stdout=PIPE, bufsize=1)
+           str(mondriaan_output_file)], stdout=PIPE, bufsize=1)
 
 for line in io.TextIOWrapper(p.stdout, encoding="utf-8"):
     s = str(line).strip()

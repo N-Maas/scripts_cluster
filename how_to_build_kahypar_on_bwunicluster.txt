@@ -17,4 +17,4 @@ export TMOUT=0
 3.) Call cmake like this: cmake .. -DCMAKE_BUILD_TYPE=Release -DKAHYPAR_USE_MINIMAL_BOOST=ON
 8.) cmake .
 9.) make mini_boost
-10.) make KaHyPar
+10.) make KaHyPar && make BalanceConstraint && make EvaluateMondriaanPartition && make HgrToMondriaanMtx
