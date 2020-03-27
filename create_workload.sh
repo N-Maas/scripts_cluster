@@ -21,12 +21,6 @@ wrapper="$PWD/start_partitioner_weighted_cluster.py"
 # workload file
 workload_file="workload.txt"
 
-module load lib/boost/1.55.0
-module unload compiler/gnu/5.2
-module load compiler/gnu/9.1
-module load mpi/openmpi/4.0-gnu-9.1
-module load devel/python/3.3.3
-
 # $create_scripts
 
 if [[ ! -d "$PWD/../results" ]]; then
