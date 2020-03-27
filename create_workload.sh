@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Set the folder containing the hypergraphs
-instance_dir="/pfs/work2/workspace/scratch/ucywg-benchmarks_final-0/"
+instance_dir="/pfs/work7/workspace/scratch/ucywg-benchmarks_final-0/"
 
 # Values of k
 declare -a kValues=("2" "4" "8" "16" "32" "64" "128")
