@@ -132,9 +132,9 @@ part_sizes = []
 hg_weight = 0
 for line in io.TextIOWrapper(p.stdout, encoding="utf-8"):
     s = str(line).strip()
-    # print(s)
+    print(s)
     if ("Cells" in s):
-        # print(s.split(','))
+        print(s.split(','))
         t = re.compile('#Cells : \s*([^\s]*)')
         result_string += (" numHNs="+str(t.findall(s)[0]))
         t = re.compile('Nets : \s*([^\s]*)')

@@ -49,9 +49,9 @@ part_sizes = []
 hg_weight = 0
 for line in io.TextIOWrapper(p.stdout, encoding="utf-8"):
     s = str(line).strip()
-    # print(s)
+    print(s)
     if ("Vtxs" in s):
-        #print(s.split(','))
+        print(s.split(','))
         result_string += (" numHNs="+str(int(s.split(',')[1][7:])))
         result_string += (" numHEs="+str(int(s.split(',')[2][10:])))
         hg_weight = int(s.split(',')[1][7:])

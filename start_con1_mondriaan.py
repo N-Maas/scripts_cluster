@@ -77,7 +77,7 @@ p = Popen([evaluator,
 
 for line in io.TextIOWrapper(p.stdout, encoding="utf-8"):
     s = str(line).strip()
-    #print(s)
+    print(s)
     if ("RESULT " in s):
         result_string = result_string+str(s[6:])
 

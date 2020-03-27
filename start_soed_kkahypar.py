@@ -58,7 +58,7 @@ for line in io.TextIOWrapper(p.stdout, encoding="utf-8"):
     if s.startswith("RESULT"):
         result_string = s
     else:
-        # print(s)
+        print(s)
         pass
 
 end = time.time()
