@@ -52,9 +52,9 @@ start = time.time()
 p = Popen([mondriaan,
            str(mondriaan_graph),
            str(k),
-	   str(ufactor),
-	   '-Metric=lambda1',
-	   '-SplitStrategy=onedimcol',
+           str(ufactor),
+           '-Metric=lambda1',
+           '-SplitStrategy=onedimcol',
            '-Seed='+str(seed)], stdout=PIPE, bufsize=1)
 
 result_string = ("RESULT epsilon=" + str(ufactor) +    
@@ -65,7 +65,7 @@ for line in io.TextIOWrapper(p.stdout, encoding="utf-8"):
     s = str(line).strip()
     print(s)
     if ("matrix distribution elapsed time:" in s):
-	mond_time = float(re.sub('seconds$', '', s[33:]))
+        mond_time = float(re.sub('seconds$', '', s[33:]))
 
 end = time.time()
 
@@ -73,13 +73,13 @@ mondriaan_output_file = mondriaan_graph+'-v'+str(k)#+'-s'+str(seed)
 
 p = Popen([evaluator,
            str(modified_hg_path),
-	   str(mondriaan_output_file)], stdout=PIPE, bufsize=1)
+     str(mondriaan_output_file)], stdout=PIPE, bufsize=1)
 
 for line in io.TextIOWrapper(p.stdout, encoding="utf-8"):
     s = str(line).strip()
     #print(s)
     if ("RESULT " in s):
-	result_string = result_string+str(s[6:])
+        result_string = result_string+str(s[6:])
 
 rmtree(modified_hg_dir) # delete the temporary directory after usage
 

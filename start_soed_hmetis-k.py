@@ -34,7 +34,7 @@ p = Popen([hMetis,
            str(k),
            '-ptype=kway',
            '-dbglvl=34',
-	   '-otype=soed',
+           '-otype=soed',
            '-ufactor='+str(int(ufactor*100)),
            '-seed='+str(seed)], stdout=PIPE, bufsize=1)
 

@@ -54,7 +54,7 @@ p = Popen([kahypar_bin,
         'true',
         '--i-bin-packing-algorithm',
         'first_fit',
-	    '-p',
+        '-p',
         kahypar_config], stdout=PIPE, bufsize=1)
 
 result_string = ""

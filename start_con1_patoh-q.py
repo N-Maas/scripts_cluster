@@ -112,12 +112,12 @@ p = Popen([PaToH,
            str(k),
            'FI='+str(ufactor), # imbalance ratio
            'PQ=Q', # quality preset
-  	   'SD='+str(seed), # seed
+  	       'SD='+str(seed), # seed
            'OD=2', # non verbose output
            'UM=O', # connectivity metric
            'WI=0', # dont write the partitioning info to disk
            'BO=C', # balance on cell
-	   'A0=100', #  MemMul_CellNet
+           'A0=100', #  MemMul_CellNet
            'A1=100', #  MemMul_Pins 
            'A2=100', #  MemMul_General
        ], stdout=PIPE, bufsize=1)

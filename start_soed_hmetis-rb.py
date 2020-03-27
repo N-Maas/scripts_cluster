@@ -56,7 +56,7 @@ for line in hg:
     if count_nodes < numNodes:
         total_weight += int(line)
 hg.close()
-    
+
 #We use hMetis-RB as initial partitioner. If called to partition a graph into k parts
 #with an UBfactor of b, the maximal allowed partition size will be 0.5+(b/100)^(log2(k)) n.
 #In order to provide a balanced initial partitioning, we determine the UBfactor such that
@@ -75,7 +75,7 @@ p = Popen([hMetis,
            str(graph),
            str(k),
            '-ptype=rb',
-	   '-otype=soed',
+           '-otype=soed',
            '-reconst',
            '-dbglvl=34',
            '-ufactor='+str(rbufactor),
