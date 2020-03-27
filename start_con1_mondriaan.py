@@ -14,8 +14,8 @@ from shutil import copyfile, rmtree
 ###################################
 # SETUP ENV
 ###################################
-mondriaan = str('/home/kit/stud/ucywg/partitioners/Mondriaan/mondriaan-master/tools/Mondriaan')
-evaluator = str('home/kit/stud/ucywg/partitioners/kahypar/build/tools/EvaluateMondriaanPartition')
+mondriaan = str('/home/kit/stud/ucywg/partitioners/Mondriaan/mondriaan/tools/Mondriaan')
+evaluator = str('/home/kit/stud/ucywg/partitioners/kahypar/build/tools/EvaluateMondriaanPartition')
 converter = str('/home/kit/stud/ucywg/partitioners/kahypar/build/tools/HgrToMondriaanMtx')
 CONVERTER_OUTPUT = open("/dev/null")
 MONDRIAAN_TMP = str('/tmp')
