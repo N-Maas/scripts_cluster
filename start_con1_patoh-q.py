@@ -10,7 +10,6 @@ import random
 import sys
 import io
 from os.path import basename
-from shutil import rmtree
 
 ###################################
 # SETUP ENV
@@ -172,6 +171,6 @@ for line in io.TextIOWrapper(p.stdout, encoding="utf-8"):
 
 end = time.time()
 
-rmtree(modified_hg_path) # delete the temporary file after usage
+os.remove(modified_hg_path) # delete the temporary file after usage
 
 print(result_string + " type=PaToH-Q" + " objective=km1" +  " measuredTotalPartitionTime=" + str(end-start))

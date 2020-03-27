@@ -10,7 +10,7 @@ declare -a kValues=("2" "4" "8" "16" "32" "64" "128")
 declare -a eValues=("0.03" "0.1")
 
 # scripts to execute
-declare -a start_scripts=("$PWD/start_soed_kkahypar-FF.py" "$PWD/start_soed_kkahypar-WF.py" "$PWD/start_soed_kkahypar.py" "$PWD/start_con1_mondriaan.py" "$PWD/start_con1_patoh-d.py" "$PWD/start_con1_patoh-q.py" "$PWD/start_soed_hmetis-k.py" "$PWD/start_soed_hmetis-rb.py")
+declare -a start_scripts=("$PWD/start_soed_kkahypar-FF.py" "$PWD/start_soed_kkahypar-WF.py" "$PWD/start_soed_kkahypar.py" "$PWD/start_soed_rkahypar.py" "$PWD/start_con1_mondriaan.py" "$PWD/start_con1_patoh-d.py" "$PWD/start_con1_patoh-q.py" "$PWD/start_soed_hmetis-k.py" "$PWD/start_soed_hmetis-rb.py")
 
 # create scripts
 # create_scripts="$PWD/create_arg_combinations.py"
