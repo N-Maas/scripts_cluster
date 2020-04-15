@@ -12,7 +12,7 @@ import io
 # SETUP ENV
 ###################################
 kahypar = str('/home/kit/stud/ucywg/partitioners/kahypar-master/')
-config = str('km1_kKaHyPar_dissertation.ini')
+config = str('km1_rKaHyPar_dissertation.ini')
 ###################################
 
 parser = argparse.ArgumentParser()
