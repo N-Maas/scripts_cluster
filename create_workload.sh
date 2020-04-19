@@ -1,16 +1,16 @@
 #!/bin/bash
 
 # Set the folder containing the hypergraphs
-instance_dir="/pfs/work7/workspace/scratch/ucywg-benchmarks_final-0/"
+instance_dir="/pfs/work7/workspace/scratch/ucywg-benchmarks_base-0/"
 
 # Values of k
-declare -a kValues=("2" "4" "8" "16" "32" "64" "128")
+declare -a kValues=("2" "32" "128")
 
 # Imbalance
 declare -a eValues=("0.03" "0.1")
 
 # scripts to execute
-declare -a start_scripts=("$PWD/start_soed_kkahypar-FF.py" "$PWD/start_soed_kkahypar-WF.py" "$PWD/start_soed_kkahypar.py" "$PWD/start_soed_rkahypar.py" "$PWD/start_con1_mondriaan.py" "$PWD/start_con1_patoh-d.py" "$PWD/start_con1_patoh-q.py" "$PWD/start_soed_hmetis-k.py" "$PWD/start_soed_hmetis-rb.py")
+declare -a start_scripts=("$PWD/start_soed_kkahypar-FF_test.py" "$PWD/start_soed_kkahypar-WF_test.py")
 
 # create scripts
 # create_scripts="$PWD/create_arg_combinations.py"
@@ -47,7 +47,7 @@ do
             do
                 for seed in `seq 0 9`
                 do
-                    echo "timeout 2h $wrapper $partitioner $instance $k $epsilon $seed >> $PWD/../results/$tool_name/$instance_name.$k.$epsilon.$seed.results" >> $workload_file
+                    echo "timeout 8h $wrapper $partitioner $instance $k $epsilon $seed >> $PWD/../results/$tool_name/$instance_name.$k.$epsilon.$seed.results" >> $workload_file
                 done
     	    done
         done
